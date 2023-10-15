@@ -1,6 +1,7 @@
 const boxes = document.querySelectorAll(".box");
 const gameInfo = document.querySelector(".game-info");
 const newGameBtn = document.querySelector(".btn");
+const gameType = document.querySelectorAll(".link");
 
 
 let currPlayer;
@@ -21,6 +22,11 @@ const winningPos = [
 //  Let's create the fucntion to insitalise the game
 function initGame()
 {
+    gameType[0].classList.remove("game-type");
+    gameType[1].classList.remove("game-type");
+    gameType[2].classList.remove("game-type");
+    gameType[3].classList.add("game-type");
+
    currPlayer = "X";
    gameGrid = ["" , "" ,"" , "" , "", "" ,"" , "" , "" ];
 
