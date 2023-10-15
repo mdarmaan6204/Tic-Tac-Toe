@@ -54,14 +54,11 @@ function swapTurn()
 function checkGameOver()
 {
     let ans = "";
-    // console.log("First");
     winningPos.forEach((pos) =>
     {
-        // console.log(pos);
         if((gameGrid[pos[0]] !== "" && gameGrid[pos[1] !=="" && gameGrid[pos[2]]] !== "")
         && (gameGrid[pos[0]] === gameGrid[pos[1]] ) && (gameGrid[pos[1]] === gameGrid[pos[2]]) )
         {
-            console.log("Done");
             if(gameGrid[pos[0]] === "X")
             {
                 ans = "X";
@@ -75,13 +72,9 @@ function checkGameOver()
             {
                 box.style.pointerEvents = "none";
             })
-            boxes[pos[0]].classList.add("win");
-            boxes[pos[1]].classList.add("win");
-            boxes[pos[2]].classList.add("win");
-        }
-        else
-        {
-            console.log("Else");
+            boxes[pos[0]].classList.add("green");
+            boxes[pos[1]].classList.add("green");
+            boxes[pos[2]].classList.add("green");
         }
     })
     
@@ -114,6 +107,10 @@ function handleClick(index)
     if(gameGrid[index] === "")
     {
         boxes[index].innerText = currPlayer;
+        if(currPlayer === "X")
+        boxes[index].classList.add("playerX");
+        else
+        boxes[index].classList.remove("playerX");
         gameGrid[index] = currPlayer;
         boxes[index].style.pointerEvents = "none";
         // Swapping the turn
